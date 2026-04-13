@@ -408,3 +408,182 @@ body {
   align-items: center;
   display: flex;
 }
+
+/* ─── Write Article Page ─────────────────────────────── */
+.article-page {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 48px 24px 60px;
+  width: 100%;
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 760px;
+  width: 100%;
+}
+
+.article-header {
+  text-align: center;
+}
+
+.article-title {
+  color: #111827;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.article-sub {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.article-form {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 36px 40px;
+}
+
+.field-textarea {
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  color: #374151;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  padding: 12px 14px;
+  resize: vertical;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.field-textarea:focus {
+  background: white;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.articles-list-title {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.article-item {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+.article-item-title {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.article-item-date {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.article-item-body {
+  color: #374151;
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ─── Write Article Header Button ────────────────────── */
+.btn-article {
+  align-items: center;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 8px;
+  padding: 10px 18px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-article:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* ─── Dashboard ID ───────────────────────────────────── */
+.dashboard-id {
+  color: #9ca3af;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ─── 404 Not Found Page ─────────────────────────────── */
+.notfound-page {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.notfound-code {
+  background: linear-gradient(135deg, #38bdf8, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.notfound-title {
+  color: #111827;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.notfound-sub {
+  color: #6b7280;
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 400px;
+}
+
+.notfound-btn {
+  max-width: 200px;
+  text-decoration: none;
+}

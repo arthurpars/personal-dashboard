@@ -1,5 +1,9 @@
 const STORAGE_KEY = "dashboard_user";
 
+export function generateId() {
+  return crypto.randomUUID();
+}
+
 export function saveUser(user) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
 }

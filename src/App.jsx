@@ -1,9 +1,36 @@
 import { useState, useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UserContext from "./context/UserContext";
-import Header from "./components/Header";
+import Layout from "./components/Layout";
+import PublicRoute from "./components/PublicRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 import LoginForm from "./components/LoginForm";
 import Dashboard from "./components/Dashboard";
+import WriteArticle from "./components/WriteArticle";
+import NotFound from "./components/NotFound";
 import { saveUser, loadUser, clearUser } from "./utils/auth";
+
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      {
+        element: <PublicRoute />,
+        children: [
+          { path: "/", element: <LoginForm /> },
+        ],
+      },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          { path: "/user/:id", element: <Dashboard /> },
+          { path: "/article", element: <WriteArticle /> },
+        ],
+      },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,8 +52,8 @@ export default function App() {
     }
   }, [currentUser]);
 
-  function handleLogin(username, email) {
-    const user = { username, email, loginTime: new Date().toISOString() };
+  function handleLogin(username, email, id) {
+    const user = { id, username, email, loginTime: new Date().toISOString() };
     setCurrentUser(user);
     setIsLoggedIn(true);
   }
@@ -41,12 +68,7 @@ export default function App() {
 
   return (
     <UserContext.Provider value={contextValue}>
-      <div className="app">
-        <Header />
-        <main className="main">
-          {isLoggedIn ? <Dashboard /> : <LoginForm />}
-        </main>
-      </div>
+      <RouterProvider router={router} />
     </UserContext.Provider>
   );
 }

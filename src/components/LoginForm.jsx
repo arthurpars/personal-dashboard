@@ -1,15 +1,20 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
+import { generateId } from "../utils/auth";
 
 export default function LoginForm() {
   const { handleLogin } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (username.trim() && email.trim()) {
-      handleLogin(username.trim(), email.trim());
+      const id = generateId();
+      handleLogin(username.trim(), email.trim(), id);
+      navigate(`/user/${id}`);
     }
   }
 

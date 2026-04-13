@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import RecentActivity from "./RecentActivity";
 import { formatDate } from "../utils/auth";
@@ -50,6 +51,7 @@ const ClockIcon = () => (
 
 export default function Dashboard() {
   const { currentUser } = useContext(UserContext);
+  const { id } = useParams();
 
   return (
     <div className="dashboard">
@@ -58,6 +60,7 @@ export default function Dashboard() {
           Welcome back, {currentUser?.username}!
         </h1>
         <p className="dashboard-date">Today is {formatDate()}</p>
+        <p className="dashboard-id">User ID: {id}</p>
         <div className="dashboard-divider" />
       </div>
 
